@@ -1,30 +1,30 @@
-// FunÁ„o para formatar o valor monet·rio no input
+// Fun√ß√£o para formatar o valor monet√°rio no input
 function formatarValor() {
     const input = document.getElementById("valor");
-    let valor = input.value.replace(/\D/g, ''); // Remove tudo que n„o for n˙mero
+    let valor = input.value.replace(/\D/g, ''); // Remove tudo que n√£o for n√∫mero
     valor = (valor / 100).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }); // Formata para moeda brasileira
     input.value = valor;
 }
 
-// FunÁ„o para formatar a porcentagem no input
+// Fun√ß√£o para formatar a porcentagem no input
 function formatarPorcentagem() {
     const input = document.getElementById("porcentagem");
-    let porcentagem = input.value.replace(/\D/g, ''); // Remove tudo que n„o for n˙mero
+    let porcentagem = input.value.replace(/\D/g, ''); // Remove tudo que n√£o for n√∫mero
     if (porcentagem) {
-        porcentagem = `${parseInt(porcentagem, 10)}%`; // Garante o formato numÈrico com %
+        porcentagem = `${parseInt(porcentagem, 10)}%`; // Garante o formato num√©rico com %
     }
     input.value = porcentagem;
 }
 
-// FunÁ„o para calcular o valor do desconto
+// Fun√ß√£o para calcular o valor do desconto
 function calcularDesconto() {
-    // ObtÈm os valores e remove formataÁıes
+    // Obt√©m os valores e remove formata√ß√µes
     const valorInput = document.getElementById("valor").value.replace(/[R$\s]/g, "").replace(/\./g, "").replace(",", ".");
     const porcentagemInput = document.getElementById("porcentagem").value.replace("%", "").replace(",", ".");
 
     // Verifica se ambos os campos foram preenchidos corretamente
     if (!valorInput || isNaN(valorInput) || !porcentagemInput || isNaN(porcentagemInput)) {
-        alert("Por favor, preencha ambos os campos com valores v·lidos!");
+        alert("Por favor, preencha ambos os campos com valores v√°lidos!");
         return;
     }
 
@@ -39,20 +39,20 @@ function calcularDesconto() {
     document.getElementById("valorDesconto").innerText = `Valor Descontado: R$ ${formatarValorCalculado(desconto)}`;
     document.getElementById("valorComDesconto").innerText = `Valor com Desconto: R$ ${formatarValorCalculado(valorComDesconto)}`;
 
-    // Mostra a seÁ„o de resultados
+    // Mostra a se√ß√£o de resultados
     document.getElementById("result").style.display = "block";
 }
 
-// FunÁ„o para formatar valores calculados
+// Fun√ß√£o para formatar valores calculados
 function formatarValorCalculado(valor) {
     return valor
         .toFixed(2) // Define 2 casas decimais
-        .replace(".", ",") // Troca ponto por vÌrgula
+        .replace(".", ",") // Troca ponto por v√≠rgula
         .replace(/\B(?=(\d{3})+(?!\d))/g, "."); // Adiciona ponto a cada milhar
 }
 
-// FunÁ„o para simular a consulta da tabela no SharePoint
+// Fun√ß√£o para simular a consulta da tabela no SharePoint
 function consultarTabela() {
-    const link = 'https://seulink.com/tabela'; // Substitua pelo seu link real
+    const link = 'https://clin7.sharepoint.com/:x:/r/sites/ISO/_layouts/15/Doc.aspx?sourcedoc=%7BD79D3CA2-944C-467E-A68F-97BEDF4BB738%7D&file=FR.COM.02%20-%20Tabela%20de%20valores%20principais%20servi%C3%A7os.xlsx&action=default&mobileredirect=true'; // Substitua pelo seu link real
     window.open(link, '_blank');
 }
