@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Desconto - Clin7</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <img src="logo.png" alt="Logo da Clin7" class="logo">
+            <h1>Calculadora de Desconto</h1>
+        </div>
+    </header>
+    <main class="calc-container">
+        <div class="container">
+            <form onsubmit="return calcularDesconto()">
+                <div class="form-group">
+                    <label for="valor">Valor (R$):</label>
+                    <input type="text" id="valor" placeholder="Digite o valor" oninput="formatarValor()">
+                </div>
+                <div class="form-group">
+                    <label for="porcentagem">Porcentagem de Desconto (%):</label>
+                    <input type="text" id="porcentagem" placeholder="Digite a porcentagem" oninput="formatarPorcentagem()">
+                </div>
+                <div class="buttons">
+                    <button type="button" class="calc-button" onclick="calcularDesconto()">Calcular</button>
+                    <button type="button" class="calc-button" onclick="consultarTabela()">Consultar Tabela</button>
+                </div>
+            </form>
+        </div>
+        <section class="result" id="result">
+            <h3>Resultado:</h3>
+            <p id="valorDesconto">Valor Descontado: R$ 0,00</p>
+            <p id="valorComDesconto">Valor com Desconto: R$ 0,00</p>
+        </section>
+    </main>
+    <div class="loading" id="loading" style="display: none;">Calculando...</div>
+    <script src="script.js"></script>
+</body>
+</html>
